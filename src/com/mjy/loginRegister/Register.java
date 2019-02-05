@@ -1,3 +1,4 @@
+package com.mjy.loginRegister;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -9,9 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
 public class Register extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8540874510500338110L;
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		super.doPost(req, resp);
+		//super.doPost(req, resp);
 		
 		String userName = req.getParameter("k1");
 		String password = req.getParameter("k2");
@@ -24,7 +30,7 @@ public class Register extends HttpServlet {
 		
 		RegisterImp rimp = new RegisterImp();
 		int i = rimp.registerUser(user);
-		
+		System.out.println(i);
 		if(i>0) {
 			System.out.println("Register successful");
 			JSONObject jsonObject = new JSONObject();
@@ -32,7 +38,7 @@ public class Register extends HttpServlet {
 			
 			PrintWriter pw = resp.getWriter();
 			pw.write(jsonObject.toString());
-			pw.print(jsonObject.toString());
+			//pw.print(jsonObject.toString());
 			
 			System.out.println("REGISTER successful" + jsonObject.toString());
 		}

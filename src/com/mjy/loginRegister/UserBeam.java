@@ -1,3 +1,4 @@
+package com.mjy.loginRegister;
 
 public class UserBeam {
 	String userName, password;
